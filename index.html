@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aBC</title>
+  <link rel="stylesheet" href="styles.css">    
+
+    <!-- <script defer src="https://cloud.umami.is/script.js" data-website-id="eb59c81c-27cb-4e1d-9e8c-bfbe70c48cd9"></script> -->
+
+</head>
+<body>
+  <video id="webcam" autoplay playsinline></video>
+  <canvas id="canvas"></canvas>
+  <div id="three-canvas"></div>
+  <div id="color-control">
+    <canvas id="color-picker-canvas" width="300" height="300"></canvas>
+  </div>
+
+  <span id="links-para"  
+  style="background: linear-gradient(
+  to right,
+  rgba(240, 230, 140, 0.5),
+  rgba(240, 230, 140, 0));
+color: black;
+width: 300px; 
+text-emphasis-color: red;"
+>
+    AI-BASED HAND GESTURE <br>Left Hand-Rotate shape when hand is detected and moved. <br>
+Right Hand:Customize shape based on gesture + Pinch:Scale shape.Open palm: Change color.</span>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+</body>
+
+<script src="main.js"></script>
+
+</html>
