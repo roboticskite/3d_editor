@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>aBC — Gesture Shape Editor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+    <!-- <script defer src="https://cloud.umami.is/script.js" data-website-id="eb59c81c-27cb-4e1d-9e8c-bfbe70c48cd9"></script> -->
+
+</head>
+<body>
+
+  <video id="webcam" autoplay playsinline></video>
+  <canvas id="canvas"></canvas>
+  <div id="three-canvas"></div>
+  <div id="vignette"></div>
+  <div id="scanlines"></div>
+
+  <!-- Loading overlay -->
+  <div id="loading-overlay">
+    <div class="loader-ring"></div>
+    <p>calibrating camera &amp; hand tracking…</p>
+  </div>
+
+  <!-- Top-left live status HUD -->
+  <div class="hud-panel" id="status-hud">
+    <div class="hud-corner tl"></div><div class="hud-corner tr"></div>
+    <div class="hud-corner bl"></div><div class="hud-corner br"></div>
+    <div class="hud-label">tracking</div>
+    <div class="hud-row"><span class="hud-key">left</span><span class="hud-value" id="hud-left">—</span></div>
+    <div class="hud-row"><span class="hud-key">right</span><span class="hud-value" id="hud-right">—</span></div>
+    <div class="hud-row"><span class="hud-key">fps</span><span class="hud-value" id="hud-fps">0</span></div>
+  </div>
+
+  <!-- Top-right color control -->
+  <div class="hud-panel" id="color-control">
+    <div class="hud-corner tl"></div><div class="hud-corner tr"></div>
+    <div class="hud-corner bl"></div><div class="hud-corner br"></div>
+    <div class="hud-label">color</div>
+    <canvas id="color-picker-canvas" width="180" height="180"></canvas>
+    <div class="color-readout">
+      <span id="color-swatch"></span>
+      <span id="color-hex">#FF00FF</span>
+    </div>
+  </div>
+
+  <!-- Bottom-left instructions -->
+  <div class="hud-panel" id="links-para">
+    <div class="hud-corner tl"></div><div class="hud-corner tr"></div>
+    <div class="hud-corner bl"></div><div class="hud-corner br"></div>
+    <div class="hud-label">gesture guide</div>
+    <div class="gesture-row"><span class="gesture-icon">✊</span><span>Left hand fist — orbit the shape as you move your hand</span></div>
+    <div class="gesture-row"><span class="gesture-icon">🤏</span><span>Right hand pinch on a corner — drag to reshape</span></div>
+    <div class="gesture-row"><span class="gesture-icon">🖐️</span><span>Right hand open palm — cycle to the next color</span></div>
+    <div class="gesture-row"><span class="gesture-icon">↕️</span><span>Right hand pinch elsewhere, move up/down — scale the shape</span></div>
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+</body>
+
+<script src="main.js"></script>
+
+</html>
